@@ -7,13 +7,29 @@ pub struct Bouncer {
 
 impl Bouncer {
 
+    /// Creates a new bouncer object
+    /// 
+    /// Example Usage:
+    /// ```rust
+    ///     let mut bouncer = Bouncer::new(Duration::from_secs(1));
+    /// 
+    ///     let result = bouncer.debounce(|| {
+    ///         return 5 + 5;
+    ///     })
+    ///  
+    ///     assert_eq!(result.is_some(), true);
+    ///     assert_eq!(result.unwrap(), 10);
+    /// ```
     pub fn new(delay: Duration) -> Self {
         return Bouncer {
             delay,
             last_run: None
         };
     }
-
+    
+    /// debounces provided function, only running function
+    /// if is has never been run, or, if the elasped time has pasted
+    /// since the function was last run.
     pub fn debounce<T>(&mut self, func: fn() -> T) -> Option<T> {
         if self.last_run.is_some() {
             let then = self.last_run.unwrap();
