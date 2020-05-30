@@ -20,14 +20,14 @@ assert_eq!(result.unwrap(), 10);
 ```rust
 use rjdebounce::Bouncer;
 
-let mut bouncer = Bouncer::new(Duration::from_secs(1)).with_func(|| 5 + 5);
+let func = || 5 + 6;
+let delay = Duration::from_secs(1);
 
-let result1 = bouncer.get_result();
+let mut bouncer = Bouncer::new(delay).with_func(func);
+
+assert_eq!(bouncer.get_result().is_some(), false);
 bouncer.execute();
-let result2 = bouncer.get_result();
-
-assert_equal!(result.is_some(), false);
-assert_equal!(result.is_some(), true);
+assert_eq!(bouncer.get_result().is_some(), true);
 ```
 
 ## Do I plan to expand on this library?
