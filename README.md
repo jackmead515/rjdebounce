@@ -16,6 +16,19 @@ let result = bouncer.debounce(|| {
 assert_eq!(result.is_some(), true);
 assert_eq!(result.unwrap(), 10);
 ```
+## OR...
+```rust
+use rjdebounce::Bouncer;
+
+let mut bouncer = Bouncer::new(Duration::from_secs(1)).with_func(|| 5 + 5);
+
+let result1 = bouncer.get_result();
+bouncer.execute();
+let result2 = bouncer.get_result();
+
+assert_equal!(result.is_some(), false);
+assert_equal!(result.is_some(), true);
+```
 
 ## Do I plan to expand on this library?
 
