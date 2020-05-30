@@ -6,7 +6,9 @@ edition = "2018"
 description = "Debouncing function utility"
 keywords = [ "debounce", "utility", "function" ]
 categories = [ "rust-patterns" ]
-license = "WTFPL"
+readme = "README.md"
+homepage = "https://github.com/jackmead515/rjdebounce"
+repository = "https://github.com/jackmead515/rjdebounce"
 license-file = "LICENSE.txt"
 
 [dependencies]
