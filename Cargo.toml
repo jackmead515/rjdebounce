@@ -6,5 +6,7 @@ edition = "2018"
 description = "Debouncing function utility"
 keywords = [ "debounce", "utility", "function" ]
 categories = [ "rust-patterns" ]
+license = "WTFPL"
+license-file = "LICENSE.txt"
 
 [dependencies]
